@@ -21,6 +21,3 @@ class Person {
     }
 }
 
-class Car(var brand: String) {
-    var year: Int = 0
-}
