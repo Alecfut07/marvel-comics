@@ -42,7 +42,7 @@ class CharactersActivity : AppCompatActivity() {
             adapter.addCharacter(character)
         } else if (requestCode == UPDATE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             // Update recycler view
-            
+
         }
     }
 }

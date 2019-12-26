@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_new_character.*
 
 class NewCharacterActivity : AppCompatActivity() {
-
     companion object {
         const val ADD_REQUEST_CODE = 100
         const val NEW_CHARACTER_KEY = "NEW_CHARACTER"

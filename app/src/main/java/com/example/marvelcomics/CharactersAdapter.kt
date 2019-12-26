@@ -10,15 +10,19 @@ class CharactersAdapter(
     private val callback: (Character) -> Unit
 ) : RecyclerView.Adapter<CharactersAdapter.CharacterViewHolder>() {
 
-    private var characters = mutableListOf(
-        Character("Captain America"),
-        Character("Iron Man"),
-        Character("Thor"),
-        Character("Hulk")
-    )
+//    private var characters: MutableList<Character> = mutableListOf(
+//        Character("Captain America"),
+//        Character("Iron Man"),
+//        Character("Thor"),
+//        Character("Hulk")
+//    )
+
+    private val characters: MutableList<Character>
+        get() = CharactersStorage.characters
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_character, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_character, parent, false)
         return CharacterViewHolder(view)
     }
 
@@ -33,10 +37,16 @@ class CharactersAdapter(
 
     fun addCharacter(character: Character) {
         characters.add(0, character)
+//        characters.add(character)
         notifyDataSetChanged()
     }
 
-    class CharacterViewHolder(view: View): RecyclerView.ViewHolder(view) {
+//    fun swap(characters: MutableList<Character>) {
+//        this.characters = characters
+//        notifyDataSetChanged()
+//    }
+
+    class CharacterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameTextView = view.findViewById<TextView>(R.id.name_text_view)
 
         fun bind(character: Character, callback: (Character) -> Unit) {
