@@ -16,6 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CharacterDetailsActivity" />
+        <activity android:name=".CharacterDetailsActivity"
+            android:parentActivityName=".CharactersActivity"
+
+            />
+        <activity android:name=".NewCharacterActivity"
+            android:parentActivityName=".CharactersActivity"/>
     </application>
 </manifest>

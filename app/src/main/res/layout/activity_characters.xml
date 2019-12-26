@@ -7,9 +7,19 @@
     tools:context=".CharactersActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/marvel_characters_list"
+        android:id="@+id/characters_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/characters_add_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add"
+
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

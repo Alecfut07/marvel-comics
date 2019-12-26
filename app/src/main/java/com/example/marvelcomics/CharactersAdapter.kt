@@ -10,7 +10,7 @@ class CharactersAdapter(
     private val callback: (Character) -> Unit
 ) : RecyclerView.Adapter<CharactersAdapter.CharacterViewHolder>() {
 
-    private val characters: List<Character> = listOf(
+    private var characters = mutableListOf(
         Character("Captain America"),
         Character("Iron Man"),
         Character("Thor"),
@@ -29,6 +29,11 @@ class CharactersAdapter(
     override fun onBindViewHolder(holder: CharacterViewHolder, position: Int) {
         val character = characters[position]
         holder.bind(character, callback)
+    }
+
+    fun addCharacter(character: Character) {
+        characters.add(0, character)
+        notifyDataSetChanged()
     }
 
     class CharacterViewHolder(view: View): RecyclerView.ViewHolder(view) {
