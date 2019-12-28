@@ -6,9 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.marvelcomics.CharacterDetailsActivity.Companion.DELETE_CHARACTER_KEY
 import com.example.marvelcomics.CharacterDetailsActivity.Companion.DETAILS_CHARACTER_KEY
 import com.example.marvelcomics.CharacterDetailsActivity.Companion.UPDATE_CHARACTER_KEY
-import com.example.marvelcomics.CharacterDetailsActivity.Companion.UPDATE_REQUEST_CODE
+import com.example.marvelcomics.CharacterDetailsActivity.Companion.DETAILS_REQUEST_CODE
 import com.example.marvelcomics.NewCharacterActivity.Companion.ADD_REQUEST_CODE
 import com.example.marvelcomics.NewCharacterActivity.Companion.NEW_CHARACTER_KEY
 import kotlinx.android.synthetic.main.activity_characters.*
@@ -23,7 +24,7 @@ class CharactersActivity : AppCompatActivity() {
         val clickHandler: (Character) -> Unit = { character ->
             val intent = Intent(this, CharacterDetailsActivity::class.java)
             intent.putExtra(DETAILS_CHARACTER_KEY, character)
-            startActivityForResult(intent, UPDATE_REQUEST_CODE)
+            startActivityForResult(intent, DETAILS_REQUEST_CODE)
 
             Log.d("TESTING", "Character name: ${character.name}")
         }
@@ -41,11 +42,15 @@ class CharactersActivity : AppCompatActivity() {
             val character = data?.getParcelableExtra(NEW_CHARACTER_KEY) as Character
             val adapter = characters_list.adapter as CharactersAdapter
             adapter.addCharacter(character)
-        } else if (requestCode == UPDATE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            // Update recycler view
-            val character = data!!.getParcelableExtra<Character>(UPDATE_CHARACTER_KEY)
+        } else if (requestCode == DETAILS_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            val characterToAdd: Character? = data?.getParcelableExtra(UPDATE_CHARACTER_KEY)
+            val characterToDelete: Character? = data?.getParcelableExtra(DELETE_CHARACTER_KEY)
             val adapter = characters_list.adapter as CharactersAdapter
-            adapter.updateCharacter(character)
+            if (characterToAdd != null) {
+                adapter.updateCharacter(characterToAdd)
+            } else if (characterToDelete != null) {
+                adapter.deleteCharacter(characterToDelete)
+            }
         }
     }
 }

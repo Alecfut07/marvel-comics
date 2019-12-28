@@ -10,8 +10,9 @@ class CharacterDetailsActivity : AppCompatActivity() {
 
     companion object {
         const val DETAILS_CHARACTER_KEY = "DETAILS_CHARACTER"
-        const val UPDATE_REQUEST_CODE = 101
+        const val DETAILS_REQUEST_CODE = 101
         const val UPDATE_CHARACTER_KEY = "UPDATE_CHARACTER"
+        const val DELETE_CHARACTER_KEY = "DELETE_CHARACTER"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +31,12 @@ class CharacterDetailsActivity : AppCompatActivity() {
                 setResult(Activity.RESULT_OK, intent)
                 finish()
             }
+        }
+        details_delete_button.setOnClickListener {
+            val intent = Intent()
+            intent.putExtra(DELETE_CHARACTER_KEY, character)
+            setResult(Activity.RESULT_OK, intent)
+            finish()
         }
         supportActionBar?.title = this.getString(R.string.details_title)
     }
