@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.marvelcomics.CharacterDetailsActivity.Companion.INDEX_KEY
 import com.example.marvelcomics.CharacterDetailsActivity.Companion.NAME_KEY
 import com.example.marvelcomics.CharacterDetailsActivity.Companion.UPDATE_REQUEST_CODE
 import com.example.marvelcomics.NewCharacterActivity.Companion.ADD_REQUEST_CODE

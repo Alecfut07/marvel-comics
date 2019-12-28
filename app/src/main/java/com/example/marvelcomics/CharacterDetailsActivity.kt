@@ -14,7 +14,10 @@ class CharacterDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character_details)
-        details_name_text_view.text = intent.getStringExtra(NAME_KEY)
+        val name = intent.getStringExtra(NAME_KEY)
+        details_name_edit_text.setText(name)
+        // Referencías cajita
+        // cajita.setText(name)
         supportActionBar?.title = this.getString(R.string.details_title)
     }
 }

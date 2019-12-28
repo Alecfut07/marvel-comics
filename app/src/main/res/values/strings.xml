@@ -6,4 +6,6 @@
     <string name="add">Add</string>
     <string name="new_title">New</string>
     <string name="details_title">Details</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
 </resources>

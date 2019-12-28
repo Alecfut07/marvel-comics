@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".CharacterDetailsActivity">
 
-    <TextView
-        android:id="@+id/details_name_text_view"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/details_name_edit_text"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/standard_margin"
         app:layout_constraintTop_toTopOf="parent"
+        android:maxLines="1"
+        android:inputType="text"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/details_delete_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/details_save_button"
+        android:layout_margin="@dimen/standard_margin"
+        android:text="@string/delete"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/details_save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:text="NAME" />
+        android:layout_margin="@dimen/standard_margin"
+        android:text="@string/save"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
