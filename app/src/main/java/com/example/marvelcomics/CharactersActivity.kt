@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.marvelcomics.CharacterDetailsActivity.Companion.INDEX_KEY
-import com.example.marvelcomics.CharacterDetailsActivity.Companion.NAME_KEY
+import com.example.marvelcomics.CharacterDetailsActivity.Companion.DETAILS_CHARACTER_KEY
+import com.example.marvelcomics.CharacterDetailsActivity.Companion.UPDATE_CHARACTER_KEY
 import com.example.marvelcomics.CharacterDetailsActivity.Companion.UPDATE_REQUEST_CODE
 import com.example.marvelcomics.NewCharacterActivity.Companion.ADD_REQUEST_CODE
 import com.example.marvelcomics.NewCharacterActivity.Companion.NEW_CHARACTER_KEY
@@ -22,7 +22,7 @@ class CharactersActivity : AppCompatActivity() {
         characters_list.layoutManager = LinearLayoutManager(this)
         val clickHandler: (Character) -> Unit = { character ->
             val intent = Intent(this, CharacterDetailsActivity::class.java)
-            intent.putExtra(NAME_KEY, character.name)
+            intent.putExtra(DETAILS_CHARACTER_KEY, character)
             startActivityForResult(intent, UPDATE_REQUEST_CODE)
 
             Log.d("TESTING", "Character name: ${character.name}")
@@ -43,7 +43,9 @@ class CharactersActivity : AppCompatActivity() {
             adapter.addCharacter(character)
         } else if (requestCode == UPDATE_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             // Update recycler view
-
+            val character = data!!.getParcelableExtra<Character>(UPDATE_CHARACTER_KEY)
+            val adapter = characters_list.adapter as CharactersAdapter
+            adapter.updateCharacter(character)
         }
     }
 }

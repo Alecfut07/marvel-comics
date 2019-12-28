@@ -41,6 +41,15 @@ class CharactersAdapter(
         notifyDataSetChanged()
     }
 
+    fun updateCharacter(character: Character) {
+        val index = characters.indexOfFirst {
+            it.id == character.id
+        }
+        characters.removeAt(index)
+        characters.add(index, character)
+        notifyDataSetChanged()
+    }
+
 //    fun swap(characters: MutableList<Character>) {
 //        this.characters = characters
 //        notifyDataSetChanged()
