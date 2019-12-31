@@ -7,7 +7,9 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.OrientationHelper
 import com.example.marvelcomics.CharacterDetailsActivity.Companion.DELETE_CHARACTER_KEY
 import com.example.marvelcomics.CharacterDetailsActivity.Companion.DETAILS_CHARACTER_KEY
 import com.example.marvelcomics.CharacterDetailsActivity.Companion.UPDATE_CHARACTER_KEY
@@ -31,6 +33,7 @@ class CharactersActivity : AppCompatActivity() {
             Log.d("TESTING", "Character name: ${character.name}")
         }
         characters_list.adapter = CharactersAdapter(clickHandler)
+        characters_list.addItemDecoration(DividerItemDecoration(this, OrientationHelper.VERTICAL))
 
         characters_add_button.setOnClickListener {
             val intent = Intent(this, NewCharacterActivity::class.java)
