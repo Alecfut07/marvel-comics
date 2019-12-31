@@ -58,6 +58,21 @@ class CharactersAdapter(
         notifyDataSetChanged()
     }
 
+    fun sortAscending() {
+        characters.sortBy { it.name }
+        notifyDataSetChanged()
+    }
+
+    fun sortDescending() {
+        characters.sortByDescending { it.name }
+        notifyDataSetChanged()
+    }
+
+    fun clearItems() {
+        characters.clear()
+        notifyDataSetChanged()
+    }
+
 //    fun swap(characters: MutableList<Character>) {
 //        this.characters = characters
 //        notifyDataSetChanged()
