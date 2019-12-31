@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:gravity="center_vertical"
     android:orientation="horizontal">
 
     <TextView
@@ -12,4 +13,13 @@
         android:layout_margin="@dimen/standard_margin"
         android:textSize="18sp"
         tools:text="Character name" />
+
+    <TextView
+        android:id="@+id/power_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="textEnd"
+        android:layout_marginEnd="@dimen/standard_margin"
+        tools:text="123" />
+
 </LinearLayout>

@@ -22,10 +22,13 @@ class CharacterDetailsActivity : AppCompatActivity() {
 
         details_name_edit_text.setText(character.name)
         details_id_text_view.text = character.id
+        details_seek_bar.progress = character.power
         details_save_button.setOnClickListener {
             val name = details_name_edit_text.text.toString()
+            val power = details_seek_bar.progress
             if (!name.isNullOrEmpty()) {
                 character.name = name
+                character.power = power
                 val intent = Intent()
                 intent.putExtra(UPDATE_CHARACTER_KEY, character)
                 setResult(Activity.RESULT_OK, intent)

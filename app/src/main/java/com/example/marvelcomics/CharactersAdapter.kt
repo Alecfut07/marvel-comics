@@ -21,8 +21,7 @@ class CharactersAdapter(
         get() = CharactersStorage.characters
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CharacterViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_character, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_character, parent, false)
         return CharacterViewHolder(view)
     }
 
@@ -80,9 +79,12 @@ class CharactersAdapter(
 
     class CharacterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nameTextView = view.findViewById<TextView>(R.id.name_text_view)
+        val powerTextView = view.findViewById<TextView>(R.id.power_text_view)
 
         fun bind(character: Character, callback: (Character) -> Unit) {
             nameTextView.text = character.name
+            powerTextView.text = character.power.toString()
+//            powerTextView.text = "${character.power}"
             itemView.setOnClickListener {
                 callback(character)
             }

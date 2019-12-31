@@ -4,13 +4,21 @@ import android.os.Parcel
 import android.os.Parcelable
 import java.util.*
 
-class Character(var name: String, var id: String = UUID.randomUUID().toString()) : Parcelable {
+class Character(
+    var name: String,
+    var power : Int = (1..100).random(),
+    var id: String = UUID.randomUUID().toString()
+) : Parcelable {
 
-    constructor(parcel: Parcel) : this(parcel.readString(), parcel.readString()) {
+    constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readInt(),
+        parcel.readString()) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(name)
+        parcel.writeInt(power)
         parcel.writeString(id)
     }
 

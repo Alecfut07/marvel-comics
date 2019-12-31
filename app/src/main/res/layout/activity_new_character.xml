@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <EditText
         android:id="@+id/new_name_edit_text"
         android:layout_width="match_parent"
@@ -14,6 +13,21 @@
         android:inputType="text"
         android:hint="@string/enter_name"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <SeekBar
+        android:id="@+id/new_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/standard_margin"
+        app:layout_constraintTop_toBottomOf="@id/new_name_edit_text"/>
+
+    <TextView
+        android:id="@+id/new_seek_bar_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/standard_margin"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/new_seek_bar"/>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/new_add_button"
